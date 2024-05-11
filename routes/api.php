@@ -31,3 +31,10 @@ Route::get('/task-2', function () {
     return response()->json($students);
 });
 
+Route::get('/task-3', function () {
+    // SELECT * FROM students WHERE age BETWEEN 15 AND 18;
+    $students = DB::table('students')->where('age', '>=', 15, 'and', '<=', 18)->get();
+    return response()->json($students);
+});
+
+
