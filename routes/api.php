@@ -25,4 +25,9 @@ Route::get('/task-1', function () {
     return response()->json($students);
 });
 
+Route::get('/task-2', function () {
+    // SELECT * FROM students WHERE grade = '10';
+    $students = DB::table('students')->where('grade', 10)->get();
+    return response()->json($students);
+});
 
