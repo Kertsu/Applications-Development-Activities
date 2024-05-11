@@ -37,4 +37,10 @@ Route::get('/task-3', function () {
     return response()->json($students);
 });
 
+Route::get('/task-4', function () {
+    // SELECT * FROM students WHERE city = 'Manila';
+    $students = DB::table('students')->where('city', 'Manila')->get();
+    return response()->json($students);
+});
+
 
