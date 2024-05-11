@@ -43,4 +43,10 @@ Route::get('/task-4', function () {
     return response()->json($students);
 });
 
+Route::get('/task-5', function () {
+    // SELECT * FROM students ORDER BY age DESC;
+    $students = DB::table('students')->orderBy('age', 'desc')->get();
+    return response()->json($students);
+});
+
 
