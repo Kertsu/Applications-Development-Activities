@@ -49,4 +49,11 @@ Route::get('/task-5', function () {
     return response()->json($students);
 });
 
-
+Route::get('/task-6', function () {
+    // SELECT students.*, teachers.name AS teacher_name FROM students LEFT JOIN teachers ON students.teacher_id = teachers.id;
+    $students = DB::table('students')
+        ->leftJoin('teachers','students.teacher_id', '=', 'teachers.id')
+        ->select('students.*', 'teachers.name AS teacher_name')
+        ->get();
+    return response()->json($students);
+});
